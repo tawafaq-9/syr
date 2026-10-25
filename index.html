@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>تَوافق | اختبار التوافق</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="cute">
+<div class="bg"></div>
+<main id="app">
+
+<section id="s-setup" class="screen on">
+  <h1 class="logo">تَوافق</h1>
+  <p class="sub">اصنع اختباراً عن نفسك وشاهد من يعرفك أكثر</p>
+  <div class="card">
+    <label>اسمك</label><input id="in-name" maxlength="20" placeholder="اكتب اسمك" autocomplete="off">
+    <label>أنا</label>
+    <div class="seg" data-key="g"><button data-v="f" class="on">أنثى</button><button data-v="m">ذكر</button></div>
+    <label>العمر</label><input id="in-age" type="number" inputmode="numeric" min="10" max="99" placeholder="العمر">
+    <label>نوع العلاقة مع المشاركين</label>
+    <select id="in-rel"><option>صديق</option><option>حبيب</option><option>خطيب</option><option>زوج / زوجة</option><option>أخ / أخت</option><option>زميل</option></select>
+    <label>عدد الأسئلة</label>
+    <div class="seg" data-key="c"><button data-v="10" class="on">10</button><button data-v="15">15</button><button data-v="20">20</button></div>
+    <button class="btn" id="btn-next">التالي: اختر إجاباتك</button>
+    <button class="btn ghost hide" id="btn-mine">لوحة نتائجي</button>
+  </div>
+</section>
+
+<section id="s-edit" class="screen">
+  <h2>اختر إجاباتك أنت</h2>
+  <p class="sub">اضغط على الخيار الذي يعبّر عنك في كل سؤال</p>
+  <div id="qlist"></div>
+  <div class="card" id="custom-box">
+    <h3>إضافة سؤال مخصص</h3>
+    <input id="cq-t" placeholder="نص السؤال">
+    <div id="cq-opts"></div>
+    <div class="row"><button class="btn ghost sm" id="cq-more">+ خيار آخر</button><button class="btn sm" id="cq-add">أضف السؤال</button></div>
+  </div>
+  <div class="row"><button class="btn ghost" id="btn-back">رجوع</button><button class="btn" id="btn-gen">إنشاء الرابط</button></div>
+</section>
+
+<section id="s-dash" class="screen">
+  <h2>اختبارك جاهز</h2>
+  <div class="card">
+    <label>رابط المشاركة</label>
+    <input id="d-link" readonly>
+    <div class="row"><button class="btn sm" id="d-copy">نسخ الرابط</button><button class="btn sm wa" id="d-wa">واتساب</button><button class="btn sm tg" id="d-tg">تيليجرام</button></div>
+  </div>
+  <div class="card"><h3>لوحة المتصدرين</h3><div id="lb"></div>
+    <p class="note">تظهر هنا النتائج المحفوظة على هذا المتصفح، ونتائج من يرسلون لك رابط نتيجتهم.</p></div>
+  <button class="btn ghost" id="d-new">اختبار جديد</button>
+</section>
+
+<section id="s-welcome" class="screen">
+  <h1 class="logo">تَوافق</h1>
+  <div class="card center">
+    <h2 id="w-title"></h2>
+    <p class="sub" id="w-sub"></p>
+    <input id="t-name" maxlength="20" placeholder="اكتب اسمك" autocomplete="off">
+    <button class="btn" id="t-start">ابدأ الاختبار</button>
+  </div>
+</section>
+
+<section id="s-quiz" class="screen">
+  <div class="dots" id="dots"></div>
+  <div class="card center"><h2 id="q-title"></h2><div class="grid" id="q-opts"></div></div>
+</section>
+
+<section id="s-result" class="screen">
+  <div class="card center">
+    <div class="ring" id="r-ring"><span id="r-pct">0%</span></div>
+    <h2 id="r-head"></h2>
+    <p class="sub" id="r-text"></p>
+    <button class="btn wa" id="r-send">أرسل نتيجتك لصاحب الاختبار</button>
+    <button class="btn" id="r-own">أنشئ اختبارك الخاص</button>
+  </div>
+  <div class="card"><h3>لوحة المتصدرين</h3><div id="r-lb"></div></div>
+</section>
+
+</main>
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
